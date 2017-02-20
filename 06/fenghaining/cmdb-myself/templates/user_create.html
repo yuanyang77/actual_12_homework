@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户创建</title>
+</head>
+<body>
+    <form action="/user/save/" method="post">
+        {% if error:%}
+            <span style="color:red">{{error}}</span>
+        {% endif %}
+        <label>用户名:<input type="text" name="username" value="{{username}}"> </label>
+        <label>年龄</label>:<input type="text" name="age" value="{{age}}"> </label>
+        <label>密码:<input type="password" name="password" value="{{password}}"> </label>
+        <label><input type="submit" value="添加"></label>
+
+    </form>
+    <form action="/users/">
+        <input type="submit" value="返回">
+    </form>
+
+</body>
+</html>

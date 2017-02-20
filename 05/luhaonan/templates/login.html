@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>管理系统</title>
+</head>
+<body>
+    <form action="/login" method="POST">
+        <h2>
+            管理员登录
+        </h2>
+        <div>
+            用户名:<br><input type="text" name="username" id="username">
+        </div>
+        <div>
+            密码:<br><input type="password" name="password" id="password">
+        </div>
+        <div>
+            <input type="submit" value="登录" id="submit">
+        </div>
+    </form>
+    {% if error %}
+        <h3 style="color: red">{{ error }}</h3>
+    {% endif %}
+</body>
+</html>

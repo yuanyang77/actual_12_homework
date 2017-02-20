@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Portal</title>
+    <link href="../src/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../src/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../src/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../src/vendor/morrisjs/morris.css" rel="stylesheet">
+    <link href="../src/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+</head>
+<body>
+
+<div id="wrapper">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <a class="navbar-brand" >Portal</a>
+            </div>
+        <div id="page-wrapper">
+                <div class="col-lg-12">
+                    <h1 class="page-header">User Table</h1>
+                </div>
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>Username</th>
+                                        <th>Password</th>
+                                        <th>Mod</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                 {% for user in dict%}
+                                     {% if user != 'admin'%}
+                                    <tr class="odd gradeX">
+                                        <td>{{user}}</td>
+                                        <td>{{dict[user]}}</td>
+                                        <td><a href="modpasswd?user={{user}}" >修改密码</td>
+                                        <td>  <form role="form" action="/deluser" method="post">
+                                            <input type="hidden" name="username" value ="{{user}}" >
+                                          <input type="submit" class="btn btn-lg btn-success btn-block" value="DEL">
+                                         </form></td>
+                                    </tr>
+                                    {% endif%}
+                                 {% endfor %}
+                                </tbody>
+
+                            </table>
+                       </div>
+                            <form role="form" action="/adduser" >
+                                          <input type="submit" class="btn btn-lg btn-success btn-block" value="ADD">
+                                         </form>
+                        <form role="form" action="/logout" >
+                                <input type="submit" class="btn btn-lg btn-success btn-block" value="Logout">
+                        </form>
+        </div>
+ </div>
+    <!-- jQuery -->
+    <script src="../src/vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../src/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../src/vendor/metisMenu/metisMenu.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="../src/vendor/raphael/raphael.min.js"></script>
+    <script src="../src/vendor/morrisjs/morris.min.js"></script>
+    <script src="../src/data/morris-data.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="../src/dist/js/sb-admin-2.js"></script>
+</body>
+</html>

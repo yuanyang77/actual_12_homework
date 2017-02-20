@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=UTF-8">
+	<title>管理系统</title>
+</head>
+<body>
+	<!--<h2>Welcom {{username}}</h2>-->
+	<table border="1">
+		<tr>
+			<a href="/userlist/adduser">新增用户</a>
+		</tr>
+		<tr>
+			<td>用户名</td>
+			<td>密码</td>
+			<td>操作</td>
+		</tr>
+		{% for user,pwd in user_dict.iteritems() %}
+		<tr>
+			<td>{{ user }}</td>
+			<td>{{ pwd }}</td>
+			<td>
+				<a href="/userlist/modify?username={{ user }}">修改</a>
+				<a class="delete" href="/userlist/delete?username={{ user }}">删除</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</body>
+</html>

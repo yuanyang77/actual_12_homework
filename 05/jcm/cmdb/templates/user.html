@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+  <a href="/">退出</a>
+<body>
+        <table border="1">
+            <tr>
+                <td>用户名</td>
+                <td>密码</td>
+                <td><a href="/user_adds">添加用户</a></td>
+            </tr>
+        {%for user in user_list%}
+         <tr>
+             <td>{{user}}</td>
+             <td>{{user_list[user]}}</td>
+             <td><a href="/user_modify?user={{user}}&pwd={{user_list[user]}}">修改</a> <a href="/del?user={{user}}&pwd={{user_list[user]}}">删除</a></td>
+         </tr>
+    {%endfor%}
+        </table>
+</body>
+</html>

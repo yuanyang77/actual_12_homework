@@ -1,0 +1,27 @@
+<html>
+<body bgcolor="grey">
+<h1  align="center">Admin portal</h1>
+<p  align="center">Contact me at zhoulouzi@hotmail.com</p>
+<hr>
+<h3  align="center">Hello {{name}} !</h3>
+<table border='1' align="center" >
+    <tr>
+             <td>账号</td>
+             <td>密码</td>
+             <td>操作</td>
+             <td>删除</td>
+    </tr>
+    {% for user in userpasswd%}
+    <tr>
+        <td>{{user}}</td>
+        <td>{{userpasswd[user]}}</td>
+        <td><a href="modpasswd?user={{user}}" >修改密码</td>
+        <td><a href="moduser?action=del&user={{user}}" >删除</td>
+    </tr>
+    {% endfor %}
+    <td><a href="moduser?action=add" >增加新的用户</td>
+    <td><a href="/logout" >退出 </a> </td>
+</form>
+</table>
+</body>
+</html>

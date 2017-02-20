@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <table border="1" align="center">
+        <tr align="center">
+            <td width="150">USER</td>
+            <td width="150">PASSWORD</td>
+            <td width="150">OPERATE</td>
+        </tr>
+        {% for key,value in user_dict.items() %}
+        <tr align="center">
+            <td width="150">{{ key }}</td>
+            <td width="150">{{ value }}</td>
+            <td width="150"><a href="/delete?user={{ key }}&pwd={{ value }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    <table  align="center">
+        <tr align="center">
+            <td width=300><a href="/insert">Insert</a></td>
+            <td width=300><a href="/index">Exit</a></td>
+        </tr>
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<h1 align="center">USER INFO</h1>
+<p align="center" style="font-size:20px">You can add or remove modify the user information!</p>
+<hr>
+<table border='1' align="center">
+<tr>
+	<td>USERNAME</td>
+	<td>PASSWORD</td>
+</tr>
+{% for user in udict %}
+<tr>
+	<td>{{user}}</td>
+	<td>{{udict[user]}}</td>
+</tr>
+{% endfor %}
+</table>
+<p>
+
+</p>
+<form align="center">
+	<a href="/show_add"><input type="button" style="width:70px; height:20px;" value='add'></a>
+	<a href="/show_del"><input type="button" style="width:70px; height:20px;" value='del'></a>
+</form>

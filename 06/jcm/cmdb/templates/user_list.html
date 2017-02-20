@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+<a href='/user_list'>返回</a>
+<a href='/logout'>退出</a>
+<p style="color:red">
+     {{num_msg}}
+</p>
+
+<form action="/user_add" method="post">
+    用户名<input type="text" name="user">
+    密码<input type="text" name="pwd">
+        <input type="submit" value="添加用户">
+</form>
+
+<body>
+
+<table border="1">
+    <form action="/user_sec" method="post">
+    用户名<input type="text" name="sec_user">
+    <input type="submit" value="查找用户">
+    </form>
+    <tr>
+        <td>用户名</td>
+        <td>密码</td>
+        <td>操作</td>
+    </tr>
+    {%for user in user_list%}
+    <tr>
+        <td>{{user[0]}}</td>
+        <td>{{user[1]}}</td>
+        <td><a href='/user_del?user={{user[0]}}'>删除</a><a href='/user_modifys?user={{user[0]}}&pwd={{user[1]}}'>编辑</a></td>
+    </tr>
+    {%endfor%}
+</table>
+
+</body>
+</html>

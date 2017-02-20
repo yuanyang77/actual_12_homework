@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <a href="/user/create/">用户添加</a>
+    <a href="/log/">日志</a>
+    <a href="/users/">返回</a>
+    <a href="/logout/">退出</a>
+    <form action="/select/" method="get">
+        <label>用户名:<input type="text" name="username" value="{{username}}"></label>
+        <label><input type="submit" value="查询"></label>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>用户名</td>
+                    <td>年龄</td>
+                    <td>密码</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{user['id']}}</td>
+                        <td>{{user['name']}}</td>
+                        <td>{{user['age']}}</td>
+                        <!-- <td>{{user['password']}}</td>-->
+                        <td>******</td>
+                        <td>
+                            <a href="/user/view/?id={{user['id']}}">编辑</a>
+                            <a href="/user/del/?id={{user['id']}}">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="container" >
+    <form class="form-inline" action="/updateaction">
+        <div class="form-group">
+            <label>user</label>
+            {{user}}<input type="hidden" class="form-control" name="user" value="{{user}}">
+        </div>
+        <div class="form-group">
+            <label>pwd</label>
+            <input type="text" class="form-control" name="new_pwd" value="{{pwd}}">
+        </div>
+        <button type="submit" class="btn btn-default">更新</button>
+    </form>
+</div>
+</body>
+</html>

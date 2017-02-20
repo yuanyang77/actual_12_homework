@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建用户</title>
+</head>
+<body>
+    <form action="/user/modify/" method="post">
+        {% if error%}
+            <span style="color:red">{{error}}</span>
+        {% endif %}
+        <input type="hidden" name="id" value="{{id}}">
+        <label>用户名:<input type="text" name="username" value="{{name}}"></label>
+        <label>年龄:<input type="text" name="age" value="{{age}}"> </label>
+        <input type="submit" value="修改">
+    </form>
+    <form action="/users/" method="get">
+        <input type="submit" value="返回">
+    </form>
+
+</body>
+</html>

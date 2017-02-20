@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>管理系统</title>
+</head>
+<body>
+    <h2>修改用户</h2>
+    <form action="/userlist/revise" method="POST">
+        <div>
+            用户名:<br><input type="text" name="username" value="{{ username }}" readonly="readonly">
+        </div>
+        <div>
+            密码:<br><input type="password" name="password">
+        </div>
+        <div>
+            确认密码:<br><input type="password" name="confimPassword">
+        </div>
+        <div>
+            <input type="submit" value="提交修改">
+        </div>
+    </form>
+    {% if error %}
+        <h3 style="color: red">{{ error }}</h3>
+    {% endif %}
+</body>
+</html>
