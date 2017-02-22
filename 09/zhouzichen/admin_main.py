@@ -33,5 +33,14 @@ def index():
 			return render_template('index.html')
 	return redirect(url_for('login'))
 
+@app.route('/setting',methods=['POST','GET'])
+def setting():
+	if request.method == 'POST':
+			username = session['username']
+			password = request.form['password']
+			if db.update_user(username,password):
+				return render_template('setting.html',msg='Change Password Success!')
+	return render_template('setting.html')
+
 if __name__ =='__main__':
 	app.run(host='0.0.0.0',port=80,debug=True)

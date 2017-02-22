@@ -23,7 +23,12 @@ def verify_user(username,passwd):
 	else:
 			return False
 
+def update_user(username,password):
+	hashed = passwd_hash.encrypt_password(password)
+	cur.execute('update %s set password = "%s" where username = "%s"' % (user_info_db,hashed,username))
+	return True
 
 if __name__ == '__main__':
 		#register_user('admin','admin')
 		print verify_user('admin','admin')
+
