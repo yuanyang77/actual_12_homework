@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 
 from flask import Flask,render_template,redirect,url_for,request,session
-
+import db
 
 app = Flask(__name__,static_folder='static')
 app.secret_key = 'zhoulouziABCDEFG'
@@ -14,11 +14,14 @@ def root():
 @app.route('/login',methods=['POST','GET'])
 def login():
 	if request.method == 'POST':
-		session['username']  = request.form['username']
-		return redirect(url_for('index'))
-	else:
-		return render_template('login.html')
-
+		username = request.form['username']
+		password =  request.form['password']
+		if db.verify_user(username,password):
+			session['username']  = username
+			return redirect(url_for('index'))
+		else:
+			return render_template('login.html',msg='Error,Please Check !')
+	return render_template('login.html')
 @app.route('/logout')
 def logout():
 	session.pop('username',None)

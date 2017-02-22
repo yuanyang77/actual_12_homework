@@ -20,6 +20,9 @@
     <!-- Custom CSS -->
     <link href="../static/dist/css/sb-admin-2.css" rel="stylesheet">
 
+    <!-- sweetalert CSS -->
+    <link href="../static/dist/css/sweetalert.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -76,6 +79,13 @@
     <!-- Custom Theme JavaScript -->
     <script src="../static/dist/js/sb-admin-2.js"></script>
 
+    <!-- sweetalert JavaScript -->
+    <script src="../static/dist/js/sweetalert.min.js"></script>
+    <script>
+            {%- if msg %}
+                swal("{{ msg }}")
+            {% endif %}
+    </script>
 </body>
 
 </html>
