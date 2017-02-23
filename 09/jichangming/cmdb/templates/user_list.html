@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <style>
+         .bum{
+        margin-top:5px;
+        margin-bottom:5px;
+    }
+    </style>
+
+</head>
+
+
+
+
+<body>
+<div class="container">
+    <a type="button" class="btn btn-primary btn-sm" href='/user_list'>返回</a>
+    <a type="button" class="btn btn-warning btn-sm " href='/logout'>退出</a>
+    <p style="color:red">
+     {{num_msg}}
+    </p>
+    <form class="form-inline" role="form" action="/user_add" method="post">
+  <div class="form-group">
+    <label class="sr-only">用户名</label>
+    <p class="form-control-static">用户名</p>
+  </div>
+    <div class="form-group">
+    <label for="inputPassword2" class="sr-only"></label>
+    <input type="text" name="user" class="form-control"  placeholder="username">
+  </div>
+    <div class="form-group">
+    <label class="sr-only">用户名</label>
+    <p class="form-control-static">密码</p>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword2" class="sr-only">密码</label>
+    <input type="password"  name="pwd" class="form-control"  placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-default">添加用户</button>
+</form>
+    <form class="form-inline" role="form" action="/user_sec" method="post">
+  <div class="form-group">
+    <label class="sr-only">用户名</label>
+    <p class="form-control-static">用户名</p>
+  </div>
+    <div class="form-group">
+    <label for="inputPassword2" class="sr-only"></label>
+    <input type="text" name="sec_user" class="form-control bum"  placeholder="username">
+  </div>
+    <div class="form-group">
+    <label class="sr-only">用户名</label>
+  </div>
+  <button type="submit" class="btn btn-default bum">查找用户</button>
+</form>
+    <div class="row">
+        <div class="col-md-12">
+    <table class="table table-bordered">
+        <tr>
+        <td>用户名</td>
+        <td>密码</td>
+        <td>操作</td>
+        </tr>
+        {%for user in user_list%}
+        <tr>
+            <td>{{user[0]}}</td>
+            <td>{{user[1]}}</td>
+            <td><a type="button" class="btn btn-danger btn-xs" href='/user_del?user={{user[0]}}'>删除</a><a type="button" class="btn btn-info btn-xs" href='/user_modifys?user={{user[0]}}&pwd={{user[1]}}'>编辑</a></td>
+            </tr>
+                {%endfor%}
+            </table>
+            </div>
+        </div>
+</div>
+
+
+</body>
+</html>

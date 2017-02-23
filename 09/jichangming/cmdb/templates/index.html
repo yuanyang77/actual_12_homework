@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>机房管理</title>
+</head>
+<body>
+<form id="addidc-form">
+    <input type="text" name="name">
+    <input type="submit" value="add">
+</form>
+<table border="1">
+    <thead>
+      <tr>
+          <td>id</td>
+          <td>idc_name</td>
+      </tr>
+    </thead>
+    <tbody id="idc_table">
+
+    </tbody>
+</table>
+
+
+<script src="/static/jquery.js"></script>
+<script>
+$('#addidc-form').on('submit',function(){
+     var idcname = $('#addidc-form').find('[name = "name"]')
+     $.post('/addidc',{name:idcname.val()},function(){
+                  init_page()
+                  idcname.val('')
+     })
+          return false
+})
+function init_page(){
+    $.getJSON('/idclist',function(res){
+        var idc_str =''
+        $.each(res,function(i,v){
+         idc_str += '<tr>'
+         idc_str +='<td>'+v[0] + '<t/d>'
+         idc_str +='<td>'+v[1] + '<t/d>'
+        })
+        $('#idc_table').html(idc_str)
+    })
+}
+init_page()
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改用户密码</title>
+</head>
+<body>
+<form action="/user_modify" method="post">
+    用户名：<input type="hidden" name="user" value="{{user}}">:
+    密码：<input type="text" name="new_pwd" value="{{pwd}}">
+         <input type="submit" value="修改密码">
+</form>
+
+</body>
+</html>
